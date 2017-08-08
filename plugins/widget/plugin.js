@@ -452,10 +452,6 @@
 				if ( !element )
 					return null;
 
-				if ( !( element instanceof CKEDITOR.dom.element ) ) {
-					return null;
-				}
-
 				var id = getWidgetId( element );
 
 				// There's no need to check element parents if element is a wrapper.
@@ -2511,7 +2507,8 @@
 				if ( !target.type )
 					return false;
 
-				widget = widgetsRepo.getByElement( target );
+				widget = ( target instanceof CKEDITOR.dom.element ) ? widgetsRepo.getByElement( target ) : null;
+
 				mouseDownOnDragHandler = 0; // Reset.
 
 				// Widget was clicked, but not editable nested in it.
