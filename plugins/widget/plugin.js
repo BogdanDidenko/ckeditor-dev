@@ -2503,6 +2503,8 @@
 			editable.attachListener( evtRoot, 'mousedown', function( evt ) {
 				var target = evt.data.getTarget();
 
+				// (http://dev.ckeditor.com/ticket/10887)
+				// (#663)
 				widget = ( target instanceof CKEDITOR.dom.element ) ? widgetsRepo.getByElement( target ) : null;
 
 				mouseDownOnDragHandler = 0; // Reset.
