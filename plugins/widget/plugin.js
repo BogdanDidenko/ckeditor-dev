@@ -2503,10 +2503,6 @@
 			editable.attachListener( evtRoot, 'mousedown', function( evt ) {
 				var target = evt.data.getTarget();
 
-				// http://dev.ckeditor.com/ticket/10887 Clicking scrollbar in IE8 will invoke event with empty target object.
-				if ( !target.type )
-					return false;
-
 				widget = ( target instanceof CKEDITOR.dom.element ) ? widgetsRepo.getByElement( target ) : null;
 
 				mouseDownOnDragHandler = 0; // Reset.
